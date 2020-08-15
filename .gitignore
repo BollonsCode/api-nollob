@@ -126,4 +126,7 @@ dist
 # .yarn/cache
 # .pnp.*
 
+# Configs
+config/
+
 # End of https://www.toptal.com/developers/gitignore/api/node,yarn

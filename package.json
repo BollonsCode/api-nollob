@@ -9,11 +9,12 @@
   "scripts": {
     "dev": "nodemon src/server.js",
     "dev:debug": "nodemon --inspect src/server.js",
-    "start": "node ."
+    "start": "node .",
+    "setup": "cd src/db/scripts/ && bash setup.sh"
   },
   "dependencies": {
     "express": "^4.17.1",
-    "mogoose": "^0.0.1-security"
+    "mongoose": "^5.10.0"
   },
   "devDependencies": {
     "eslint": "^7.6.0",

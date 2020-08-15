@@ -1,6 +1,7 @@
 import express from 'express';
 
 import routes from './routes';
+import connection from './db/config/database';
 
 class App {
   constructor() {
@@ -12,6 +13,7 @@ class App {
 
   middlewares() {
     this.express.use(express.json());
+    connection.con();
   }
 
   routes() {
