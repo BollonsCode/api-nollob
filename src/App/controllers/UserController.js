@@ -12,6 +12,40 @@ const UserController = {
 
     return res.status(200).json(userCreated);
   },
+
+  async findByMonth(req, res) {
+    const { month } = req.params;
+
+    const usersFound = await UserService.findUsersByMonth(month);
+
+    if (usersFound.found === false) {
+      return res.status(404).json(usersFound);
+    }
+
+    return res.status(200).json(usersFound);
+  },
+
+  async findByCurrentMonth(req, res) {
+    const usersFound = await UserService.findUsersCurrentMonth();
+
+    if (usersFound.found === false) {
+      return res.status(404).json(usersFound);
+    }
+
+    return res.status(200).json(usersFound);
+  },
+
+  async findByDayAndMonth(req, res) {
+    const { day, month } = req.params;
+
+    const usersFound = await UserService.findUsersByDayAndMonth(day, month);
+
+    if (usersFound.found === false) {
+      return res.status(404).json(usersFound);
+    }
+
+    return res.status(200).json(usersFound);
+  },
 };
 
 export default UserController;

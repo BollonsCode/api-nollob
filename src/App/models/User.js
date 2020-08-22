@@ -11,8 +11,16 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
-  nvDate: {
-    type: Date,
+  day: {
+    type: Number,
+    required: true,
+  },
+  month: {
+    type: Number,
+    required: true,
+  },
+  strDate: {
+    type: String,
     required: true,
   },
 });

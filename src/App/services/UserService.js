@@ -34,7 +34,85 @@ const UserService = {
     };
   },
 
-  async findUsersByMonth() {},
+  async findUsersByMonth(month) {
+    let resp;
+    try {
+      const usersFound = await User.find({ month });
+
+      if (usersFound.length > 0) {
+        resp = {
+          users: usersFound,
+          found: true,
+        };
+      } else {
+        resp = {
+          msg: 'Users not found',
+          found: false,
+        };
+      }
+    } catch (err) {
+      resp = {
+        msg: 'Error to find',
+        found: false,
+      };
+    }
+
+    return resp;
+  },
+
+  async findUsersCurrentMonth() {
+    const month = new Date().getMonth() + 1;
+
+    let resp;
+    try {
+      const usersFound = await User.find({ month });
+
+      if (usersFound.length > 0) {
+        resp = {
+          users: usersFound,
+          found: true,
+        };
+      } else {
+        resp = {
+          msg: 'Users not found',
+          found: false,
+        };
+      }
+    } catch (err) {
+      resp = {
+        msg: 'Error to find',
+        found: false,
+      };
+    }
+
+    return resp;
+  },
+
+  async findUsersByDayAndMonth(day, month) {
+    let resp;
+    try {
+      const usersFound = await User.find({ day, month });
+
+      if (usersFound.length > 0) {
+        resp = {
+          users: usersFound,
+          found: true,
+        };
+      } else {
+        resp = {
+          msg: 'Users not found',
+          found: false,
+        };
+      }
+    } catch (err) {
+      resp = {
+        msg: 'Error to find',
+        found: false,
+      };
+    }
+
+    return resp;
+  },
 };
 
 export default UserService;
