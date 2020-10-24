@@ -113,6 +113,32 @@ const UserService = {
 
     return resp;
   },
+
+  async deleteUser(userName) {
+    let resp;
+    try {
+      const userDeleted = await User.deleteOne({ userName });
+
+      if (userDeleted.deletedCount === 1) {
+        resp = {
+          msg: 'User deleted sucsessfully',
+          deleted: true,
+        };
+      } else {
+        resp = {
+          msg: 'User not found',
+          deleted: false,
+        };
+      }
+    } catch (err) {
+      resp = {
+        msg: 'Error to delete',
+        deleted: false,
+      };
+    }
+
+    return resp;
+  },
 };
 
 export default UserService;

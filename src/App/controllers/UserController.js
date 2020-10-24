@@ -46,6 +46,18 @@ const UserController = {
 
     return res.status(200).json(usersFound);
   },
+
+  async destroy(req, res) {
+    const { userName } = req.params;
+
+    const userDeleted = await UserService.deleteUser(userName);
+
+    if (userDeleted.deleted === false) {
+      return res.status(404).json(userDeleted);
+    }
+
+    return res.status(200).json(userDeleted);
+  },
 };
 
 export default UserController;

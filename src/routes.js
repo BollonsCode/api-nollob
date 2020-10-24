@@ -12,5 +12,6 @@ routes.post('/users', UserController.store);
 routes.get('/users/month/:month', UserController.findByMonth);
 routes.get('/users/month', UserController.findByCurrentMonth);
 routes.get('/users/day/:day/month/:month', UserController.findByDayAndMonth);
+routes.delete('/users/:userName', UserController.destroy);
 
 export default routes;
