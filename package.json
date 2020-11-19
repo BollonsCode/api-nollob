@@ -9,9 +9,9 @@
   "scripts": {
     "dev": "nodemon src/server.js",
     "dev:debug": "nodemon --inspect src/server.js",
-    "start": "node -r sucrase/register src/server.js",
+    "start": "yarn build && node ./build/server.js",
     "setup": "cd src/db/scripts/ && bash setup.sh",
-    "build": "yarn setup && yarn start"
+    "build": "sucrase ./src -d ./build --transforms imports"
   },
   "dependencies": {
     "express": "^4.17.1",
