@@ -10,7 +10,8 @@
     "dev": "nodemon src/server.js",
     "dev:debug": "nodemon --inspect src/server.js",
     "start": "node .",
-    "setup": "cd src/db/scripts/ && bash setup.sh"
+    "setup": "cd src/db/scripts/ && bash setup.sh",
+    "build": "yarn setup && yarn start"
   },
   "dependencies": {
     "express": "^4.17.1",
