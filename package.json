@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "nodemon src/server.js",
     "dev:debug": "nodemon --inspect src/server.js",
-    "start": "node .",
+    "start": "node -r sucrase/register src/server.js",
     "setup": "cd src/db/scripts/ && bash setup.sh",
     "build": "yarn setup && yarn start"
   },
